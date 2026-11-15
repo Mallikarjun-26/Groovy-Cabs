@@ -418,3 +418,6 @@ main>.contact-section .owner-avatar{width:260px!important;height:260px!important
 main>.contact-section .owner-profile-top h2{font-size:1.5rem!important;line-height:1.2!important}
 main>.contact-section .owner-profile-top .owner-designation{font-size:.95rem!important}
 @media(max-width:760px){main>.contact-section .owner-avatar{width:200px!important;height:200px!important;font-size:3.4rem!important}main>.contact-section .owner-profile-top h2{font-size:1.35rem!important}main>.contact-section .owner-profile-top .owner-designation{font-size:.9rem!important}}
+/* Home feature photo: Manoa Angelo, Unsplash (Unsplash License). */
+.photo-panel{background:linear-gradient(0deg,#09170fc7 0%,#09170f35 34%,#09170f00 72%),radial-gradient(ellipse at center,#0000 48%,#07110b55 100%),url('../assets/munnar-tea-hills.webp') center/cover!important}
+.photo-caption{right:16px!important;bottom:14px!important;left:16px!important;width:auto!important;max-width:none!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;text-align:center!important;color:#fff!important;font-size:clamp(.86rem,2vw,1.15rem)!important;font-style:normal!important;font-weight:600!important;line-height:1.2!important;text-shadow:0 2px 12px #06110be8!important}
