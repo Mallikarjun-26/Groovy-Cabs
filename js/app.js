@@ -61,38 +61,33 @@
   const outstationQuote=(v=data.vehicles.find(x=>x.id===field('m-vehicle').value)||data.vehicles[0])=>{const days=Math.min(30,Math.max(1,Number(field('m-days').value)||1)),manualKm=Number(field('m-distance').value),distanceKm=manualKm>0?manualKm:knownRouteDistance(),includedKm=(v.minKm||300)*days,extraKm=distanceKm==null?null:Math.max(0,Math.ceil(distanceKm-includedKm)),baseFare=(v.outstation||0)*days;return{days,distanceKm,includedKm,extraKm,baseFare,amount:baseFare}};
   const fare=()=>{let v=data.vehicles.find(x=>x.id===field('m-vehicle').value)||data.vehicles[0],trip=field('m-trip').value,service=field('m-service').value;if(service==='Local')return trip.includes('8 hours')?v.local8:v.local4;if(service==='Outstation')return outstationQuote(v).amount;if(service==='Airport')return v.airport;return 0};
   const updateFare=()=>{let v=data.vehicles.find(x=>x.id===field('m-vehicle').value)||data.vehicles[0],trip=field('m-trip').value,service=field('m-service').value,local=service==='Local',name=local?localVehicleNames[v.id]:v.name,seats=local?localVehicleSeats[v.id]:v.seats;if(service==='Outstation'){const q=outstationQuote(v),distance=q.distanceKm==null?'Not available for this route':`${Math.round(q.distanceKm)} km${field('m-distance').value?' (entered)':''}`,extra=q.extraKm==null?'Additional distance, if any, will be quoted by the team.':q.extraKm?`${q.extraKm} km beyond the included ${q.includedKm} km will be quoted separately.`:`Within the ${q.includedKm} km included allowance.`;document.querySelector('#fare-preview').innerHTML=`<strong>${escape(name)}</strong> · ${escape(seats)} seats<br><strong>Indicative base fare: ${money(q.baseFare)}</strong> <span class="muted">(${money(v.outstation)} × ${q.days} day${q.days===1?'':'s'})</span><br>Trip distance: ${escape(distance)} · Included: ${q.includedKm} km<br>${escape(extra)}<br><span class="muted">Tolls, parking, permits and any night allowance are extra.</span>`;return}document.querySelector('#fare-preview').innerHTML=`<strong>${escape(name)}</strong> · ${escape(seats)} seats<br><strong>Indicative fare: ${money(fare())}</strong> ${service==='Local'?`· ${trip.includes('8 hours')?'8 hours / 80 km':'4 hours / 40 km'}`:''}<br><span class="muted">Tolls, parking and applicable extras confirmed separately.</span>`};
-  const updateSummary=()=>{let v=data.vehicles.find(x=>x.id===field('m-vehicle').value),service=field('m-service').value,local=service==='Local',vehicleName=local?localVehicleNames[v.id]:v.name,q=service==='Outstation'?outstationQuote(v):null;const estimateText=q?`Indicative base fare ${money(q.baseFare)} (${money(v.outstation)} × ${q.days} day${q.days===1?'':'s'})`: `Indicative fare ${money(fare())}`;const distanceText=q?(q.distanceKm==null?'Route distance unavailable in the rate guide':`Approx. ${Math.round(q.distanceKm)} km`):'';const extrasText=q?`${q.extraKm==null?'Extra distance, if any, will be quoted after route confirmation.':q.extraKm?`${q.extraKm} km beyond the included ${q.includedKm} km; additional distance rate to be confirmed.`:`Within the included ${q.includedKm} km allowance.`}`:'';document.querySelector('#booking-summary').innerHTML=`<strong>Booking No: #${escape(state.bookingId)}</strong><br><strong>${escape(service)} · ${escape(field('m-trip').value)}</strong><br>${escape(val('m-pickup'))} → ${escape(val('m-drop'))}<br>${escape(val('m-date'))} at ${escape(val('m-time'))} · ${escape(field('m-passengers').value)} passenger(s)${q?`<br>${q.days} trip day${q.days===1?'':'s'} · ${escape(distanceText)} · ${escape(vehicleName)}<br><strong>${escape(estimateText)}</strong>`:`<br>${escape(vehicleName)} · ${escape(estimateText)}`}<br>${escape(val('m-name'))} · ${escape(val('m-phone'))}${val('m-email')?`<br>${escape(val('m-email'))}`:''}${val('m-request')?`<br>${escape(val('m-request'))}`:''}${q?`<br><span class="muted">${escape(extrasText)} Final quote subject to confirmation.</span>`:'<br><span class="muted">Final fare and availability to be confirmed.</span>'}`;let msg;if(q){const distanceLine=q.distanceKm==null?'• Route distance: to be confirmed with the team':`• Approx. trip distance: ${Math.round(q.distanceKm)} km`;const excessLine=q.extraKm==null?'• Distance beyond the included allowance, if any: quoted after route confirmation.':q.extraKm?`• Estimated excess over ${q.includedKm} included km: ${q.extraKm} km; additional distance rate is not listed on the supplied rate card and will be confirmed.`:`• Estimated distance is within the included ${q.includedKm} km.`;msg=`🚕 *GROOVY CABS · OUTSTATION BOOKING REQUEST*
-━━━━━━━━━━━━━━━━━━
+  const updateSummary=()=>{let v=data.vehicles.find(x=>x.id===field('m-vehicle').value),service=field('m-service').value,local=service==='Local',vehicleName=local?localVehicleNames[v.id]:v.name,q=service==='Outstation'?outstationQuote(v):null;const estimateText=q?`Indicative base fare ${money(q.baseFare)} (${money(v.outstation)} × ${q.days} day${q.days===1?'':'s'})`: `Indicative fare ${money(fare())}`;const distanceText=q?(q.distanceKm==null?'Route distance unavailable in the rate guide':`Approx. ${Math.round(q.distanceKm)} km`):'';const extrasText=q?`${q.extraKm==null?'Extra distance, if any, will be quoted after route confirmation.':q.extraKm?`${q.extraKm} km beyond the included ${q.includedKm} km; additional distance rate to be confirmed.`:`Within the included ${q.includedKm} km allowance.`}`:'';document.querySelector('#booking-summary').innerHTML=`<strong>Booking No: #${escape(state.bookingId)}</strong><br><strong>${escape(service)} · ${escape(field('m-trip').value)}</strong><br>${escape(val('m-pickup'))} → ${escape(val('m-drop'))}<br>${escape(val('m-date'))} at ${escape(val('m-time'))} · ${escape(field('m-passengers').value)} passenger(s)${q?`<br>${q.days} trip day${q.days===1?'':'s'} · ${escape(distanceText)} · ${escape(vehicleName)}<br><strong>${escape(estimateText)}</strong>`:`<br>${escape(vehicleName)} · ${escape(estimateText)}`}<br>${escape(val('m-name'))} · ${escape(val('m-phone'))}${val('m-email')?`<br>${escape(val('m-email'))}`:''}${val('m-request')?`<br>${escape(val('m-request'))}`:''}${q?`<br><span class="muted">${escape(extrasText)} Final quote subject to confirmation.</span>`:'<br><span class="muted">Final fare and availability to be confirmed.</span>'}`;let msg;if(q){const distanceLine=q.distanceKm==null?'• Distance: confirm with team':`• Distance: ${Math.round(q.distanceKm)} km`;const excessLine=q.extraKm==null?'• Extra distance/rate: confirm with team':q.extraKm?`• Extra ${q.extraKm} km: rate to be confirmed`:`• Extra distance: none within ${q.includedKm} km`;msg=`🚕 *GROOVY CABS · OUTSTATION BOOKING REQUEST*
+${'━'.repeat(26)}
 *BOOKING #${state.bookingId}*
 
 *TRIP DETAILS*
 • Route: ${val('m-pickup')} → ${val('m-drop')}
-• Trip type: ${field('m-trip').value}
-• Travel dates: ${val('m-date')} · ${q.days} day${q.days===1?'':'s'}
-• Pickup time: ${val('m-time')}
+• Trip: ${field('m-trip').value} · ${q.days} day${q.days===1?'':'s'}
+• Date: ${val('m-date')} · Pickup: ${val('m-time')}
 • Passengers: ${field('m-passengers').value}
 ${distanceLine}
 
-*VEHICLE & INDICATIVE FARE*
-• Vehicle: ${vehicleName} (${v.seats} seats)
-• Rate: ${money(v.outstation)} per day × ${q.days} day${q.days===1?'':'s'}
-• *Indicative base fare: ${money(q.baseFare)}*
-• Minimum inclusion: ${v.minKm||300} km/day (${q.includedKm} km total)
+*VEHICLE & FARE*
+• Vehicle: ${vehicleName} · ${v.seats} seats
+• Rate: ${money(v.outstation)}/day × ${q.days}
+• Base fare: ${money(q.baseFare)} (indicative)
+• Included: ${v.minKm||300} km/day · ${q.includedKm} km total
 ${excessLine}
 
-*EXTRA CHARGES & TERMS*
-• Driver allowance is included in the daily fare.
-• Toll and parking charges are extra at actual cost.
-• Outstation permit charges are extra.
-• Night driver allowance after 10 PM: ${money(v.night||v.allowance||0)} when applicable; not included above.
-• Passengers are responsible for their belongings; Groovy Cabs is not liable for loss or damage.
-• Fare is indicative. Availability, route distance and final fare must be confirmed by the team.
+*TERMS*
+• Driver allowance included; tolls, parking and permits extra.
+• Night allowance after 10 PM: ${money(v.night||v.allowance||0)} if applicable.
+• Confirm route, availability and final fare with the team.
 
 *CUSTOMER*
-• Name: ${val('m-name')}
-• Phone: ${val('m-phone')}
+• ${val('m-name')} · ${val('m-phone')}
 • Email: ${val('m-email')||'Not provided'}
-• Special request: ${val('m-request')||'None'}
+• Request: ${val('m-request')||'None'}
 
 Please confirm the booking and final trip amount.`}else{msg=`🚕 *GROOVY CABS · BOOKING REQUEST*
 ━━━━━━━━━━━━━━━━━━
