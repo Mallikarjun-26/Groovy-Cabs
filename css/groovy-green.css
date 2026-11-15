@@ -208,3 +208,20 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
  .footer{background:linear-gradient(145deg,#a0e56e,#81da46 62%,#70c93d)}
 }
 
+
+/* Fleet rate cards: crisp light surfaces, high-contrast prices, and one clear brand-green action. */
+.home-rate-card.local-rate-card{border:1px solid #d7e3d2;background:#fffefa;color:#19271e;box-shadow:0 12px 28px #17332112}
+.home-rate-card.local-rate-card:hover{border-color:#81da46;box-shadow:0 18px 36px #1733211c}
+.home-rate-card>img{background:linear-gradient(180deg,#fbfcf8 0%,#f1f5ed 100%);border-bottom:1px solid #e0e9db}
+.home-rate-card .local-rate-content h3{color:#1d432c}
+.home-rate-card .local-rate-content h3 span{color:#53655a}
+.home-rate-card .home-rate-prices{border-color:#dce7d8}
+.home-rate-card .home-rate-prices>div{border-color:#e1e9dd}
+.home-rate-card .home-rate-prices span{color:#435348;font-size:.82rem}
+.home-rate-card .home-rate-prices strong{color:#245334;font-size:.96rem;font-weight:700}
+.home-rate-card .vehicle-tag{border-color:#234c31;background:#234c31;color:#fff;box-shadow:0 5px 14px #17332128;backdrop-filter:none;-webkit-backdrop-filter:none}
+.home-rate-card .vehicle-tag-featured{border-color:#70bf3d;background:linear-gradient(120deg,#a0e56e,#81da46);color:#18311e}
+.home-rate-card .home-rate-enquire{min-height:46px;border:1px solid #65b833;border-radius:10px;background:linear-gradient(120deg,#9ce765 0%,#81da46 58%,#70c93d 100%);box-shadow:0 7px 16px #3d812329;color:#17251b;font-size:.86rem;font-weight:700}
+.home-rate-card .home-rate-enquire:hover{background:linear-gradient(120deg,#b0ee82 0%,#90e353 58%,#7ad344 100%);box-shadow:0 10px 20px #3d812333}
+.home-rate-card .home-rate-enquire:focus-visible{outline:3px solid #234c31;outline-offset:3px}
+@media(max-width:760px){.home-rate-card .home-rate-prices span{font-size:.82rem}.home-rate-card .home-rate-prices strong{font-size:.94rem}}
