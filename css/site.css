@@ -528,3 +528,6 @@ img,svg,video,canvas{max-width:100%}
 
 /* Remove decorative explanatory subtitles while preserving essential details and FAQs. */
 main .hero-copy>p,main .page-hero .wrap>p,main .section-head>p,main .journey-heading>p,main .wrap.split>div:not(.photo-panel)>p,main .service-row p,main .route-card p,main .vehicle-note,main .journey-promise-card>p,main .journey-steps-card ol li p,main .feature p,main .step p,main .about-values p,main .contact-profile-card p{display:none!important}
+
+/* Fleet images: consistent height and full-vehicle framing across every carousel. */
+.home-rate-card>img,.local-rate-card>img,.vehicle-carousel-rail>.vehicle-card>img{display:block;width:100%;height:156px!important;min-height:156px!important;max-height:156px!important;flex:0 0 156px!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center;background:linear-gradient(180deg,#f8faf5 0%,#eef3e8 100%);padding:8px 16px;border-bottom:1px solid #dfe8d8}
