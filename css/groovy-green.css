@@ -376,3 +376,23 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
   main>.page-hero-outstation:before{background-image:url('https://images.unsplash.com/photo-1661158199166-5eeb99561ad7?auto=format&fit=crop&w=1400&q=85')!important;background-position:center 48%}
 }
 
+/* Compact the mobile footer into calm, readable two-column groups. */
+.footer .whatsapp-link{color:#173f27!important}
+@media(max-width:760px){
+  #app>.footer{padding:22px 0 calc(82px + env(safe-area-inset-bottom))!important}
+  #app>.footer>.wrap{width:calc(100% - 32px)}
+  #app>.footer .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px;padding-bottom:14px}
+  #app>.footer .footer-grid>div:first-child{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;text-align:center}
+  #app>.footer .brand{width:max-content;justify-content:center;margin:0 auto 6px}
+  #app>.footer .brand-logo-frame{width:88px;height:38px;flex:0 0 88px;border-radius:7px}
+  #app>.footer .brand-logo{width:100%;height:100%;object-fit:contain}
+  #app>.footer .footer-grid>div:first-child p,#app>.footer .footer-grid>div:first-child .link-arrow{display:none!important}
+  #app>.footer h3{margin:0 0 8px;font-size:.82rem;line-height:1.2}
+  #app>.footer .footer-links{gap:6px;font-size:.76rem;line-height:1.3}
+  #app>.footer .footer-grid>div:nth-child(2),#app>.footer .footer-grid>div:nth-child(3){padding-top:12px;border-top:1px solid #28432435}
+  #app>.footer .footer-grid>div:nth-child(4){grid-column:1/-1;padding-top:12px;border-top:1px solid #28432435}
+  #app>.footer .footer-grid>div:nth-child(4) .footer-links{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;gap:7px 16px}
+  #app>.footer .footer-grid>div:nth-child(4) .footer-links span:last-child{display:none}
+  #app>.footer .footer-bottom{justify-content:center;gap:4px;padding-top:10px;text-align:center;font-size:.7rem}
+}
+
