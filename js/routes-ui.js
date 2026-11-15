@@ -42,8 +42,8 @@
       const article = content.querySelector('.route-wiki-link');
       article.href = page.content_urls?.desktop?.page || wiki.articleUrl(requested);
       const photo = content.querySelector('.route-detail-photo');
-      if (page.thumbnail?.source && wiki.relatedPage(requested, page.title)) {
-        photo.src = page.thumbnail.source; photo.hidden = false;
+      if (wiki.photoSource(page) && wiki.relatedPage(requested, page.title)) {
+        photo.src = wiki.photoSource(page); photo.hidden = false;
       }
     } catch { extract.textContent = 'Wikipedia details are unavailable right now.'; }
     const places = content.querySelector('.route-detail-places');
@@ -59,9 +59,9 @@
         if (page.type === 'disambiguation' || !wiki.relatedPage(title, page.title)) { summary.textContent = 'Open the Wikipedia article for details.'; credit.remove(); continue; }
         summary.textContent = brief(wiki.shortExtract(page.extract), 155) || 'Open the Wikipedia article for details.';
         link.href = page.content_urls?.desktop?.page || wiki.articleUrl(title);
-        if (page.thumbnail?.source) {
-          img.src = page.thumbnail.source; img.hidden = false;
-          try { const source = await wiki.fileCredit(page.thumbnail.source); credit.textContent = `Photo: ${source.artist} · ${source.license}`; credit.href = source.fileUrl; }
+        if (wiki.photoSource(page)) {
+          img.src = wiki.photoSource(page); img.hidden = false;
+          try { const source = await wiki.fileCredit(wiki.photoSource(page)); credit.textContent = `Photo: ${source.artist} · ${source.license}`; credit.href = source.fileUrl; }
           catch { credit.textContent = 'Photo: Wikimedia Commons'; credit.href = page.content_urls?.desktop?.page || wiki.articleUrl(title); }
         } else credit.remove();
       } catch { summary.textContent = 'Wikipedia details could not be loaded.'; credit.remove(); }

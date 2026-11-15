@@ -19,6 +19,7 @@
     if (!summaryCache.has(key)) summaryCache.set(key, requestJson(api + encodeURIComponent(key.replaceAll(' ', '_'))));
     return summaryCache.get(key);
   };
+  const photoSource = page => page?.originalimage?.source || page?.thumbnail?.source || '';
   const plain = html => new DOMParser().parseFromString(html||'','text/html').body.textContent.trim();
   const fileCredit = imageUrl => {
     if (!creditCache.has(imageUrl)) {
@@ -35,10 +36,10 @@
     }
     return creditCache.get(imageUrl);
   };
-  window.CAB_WIKIPEDIA = { summary, fileCredit, articleUrl, shortExtract, relatedPage };
+  window.CAB_WIKIPEDIA = { summary, fileCredit, articleUrl, shortExtract, relatedPage, photoSource };
   const applyPhoto = async (img, title) => {
     try {
-      const page=await summary(title); const src=page.thumbnail?.source;
+      const page=await summary(title); const src=photoSource(page);
       if (!src) { img.hidden=true; return page; }
       img.src=src; img.hidden=false;
       return page;
@@ -51,14 +52,19 @@
     for(const title of candidates){
       try{
         const result=await summary(title);
-        if(!result.thumbnail?.source||!relatedPage(title,result.title))continue;
-        const loaded=await new Promise(resolve=>{
-          let settled=false;
-          const finish=value=>{if(settled)return;settled=true;clearTimeout(timeout);img.onload=null;img.onerror=null;resolve(value);};
-          const timeout=setTimeout(()=>finish(false),5000);
-          img.onload=()=>finish(true);img.onerror=()=>finish(false);img.hidden=false;img.src=result.thumbnail.source;
-        });
-        if(loaded){page=result;break;}
+        const sources=[...new Set([result.originalimage?.source,result.thumbnail?.source].filter(Boolean))];
+        if(!sources.length||!relatedPage(title,result.title))continue;
+        let loadedSource='';
+        for(const src of sources){
+          const loaded=await new Promise(resolve=>{
+            let settled=false;
+            const finish=value=>{if(settled)return;settled=true;clearTimeout(timeout);img.onload=null;img.onerror=null;resolve(value);};
+            const timeout=setTimeout(()=>finish(false),7000);
+            img.onload=()=>finish(true);img.onerror=()=>finish(false);img.hidden=false;img.src=src;
+          });
+          if(loaded){loadedSource=src;break;}
+        }
+        if(loadedSource){result.loadedImageSource=loadedSource;page=result;break;}
       }catch{}
     }
     if(!page){img.hidden=true;if(source)source.textContent='Photo unavailable';return;}
@@ -66,7 +72,7 @@
     img.alt=`${page.title} photo for the ${routeName||'Bengaluru'} cab route`;
     if(source){source.href=page.content_urls?.desktop?.page||articleUrl(page.title);source.textContent='View photo source ↗';source.title='Wikipedia image source';}
     try {
-      const c=await fileCredit(page.thumbnail.source);
+      const c=await fileCredit(page.loadedImageSource||photoSource(page));
       if(source){source.textContent=`Photo: ${c.artist} · ${c.license}`;source.href=c.fileUrl;source.title='Image credit and license details';}
     }catch{if(source)source.textContent='Photo: Wikimedia Commons';}
   };
@@ -83,9 +89,10 @@
       destination.querySelector('.wiki-destination-extract').textContent=shortExtract(page.extract)||page.description||`Read the Wikipedia page for ${title}.`;
       const article=destination.querySelector('.wiki-destination-link');
       article.href=page.content_urls?.desktop?.page||articleUrl(title);
-      if(page.thumbnail?.source){
-        const img=destination.querySelector('.wiki-destination-photo');img.src=page.thumbnail.source;img.hidden=false;
-        try{const c=await fileCredit(page.thumbnail.source);const credit=destination.querySelector('.wiki-destination-credit');credit.textContent=`Photo: ${c.artist} · ${c.license}`;credit.href=c.fileUrl;}
+      const src=photoSource(page);
+      if(src){
+        const img=destination.querySelector('.wiki-destination-photo');img.src=src;img.hidden=false;
+        try{const c=await fileCredit(src);const credit=destination.querySelector('.wiki-destination-credit');credit.textContent=`Photo: ${c.artist} · ${c.license}`;credit.href=c.fileUrl;}
         catch{}
       }
     }).catch(()=>{destination.querySelector('.wiki-destination-extract').textContent='Wikipedia information is unavailable right now.';});
@@ -108,9 +115,10 @@
       if(page.type==='disambiguation'||!relatedPage(title,page.title)){extract.textContent='No matching Wikipedia summary was found. Open the article for details.';return;}
       extract.textContent=shortExtract(page.extract)||'Read the Wikipedia article for details.';
       link.href=page.content_urls?.desktop?.page||articleUrl(title);
-      if (page.thumbnail?.source) {
-        img.src=page.thumbnail.source; img.hidden=false;
-        try { const c=await fileCredit(page.thumbnail.source); attribution.textContent=`Photo: ${c.artist} · ${c.license}`; attribution.title='Image credit and license details'; attribution.href=c.fileUrl; }
+      const src=photoSource(page);
+      if (src) {
+        img.src=src; img.hidden=false;
+        try { const c=await fileCredit(src); attribution.textContent=`Photo: ${c.artist} · ${c.license}`; attribution.title='Image credit and license details'; attribution.href=c.fileUrl; }
         catch { attribution.textContent='Photo: Wikimedia Commons'; }
       } else attribution.textContent='No article photo available';
     }).catch(()=>{extract.textContent='Wikipedia details could not be loaded. Open the article for more information.'; attribution.textContent='Wikipedia';});
