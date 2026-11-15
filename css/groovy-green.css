@@ -56,6 +56,59 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
 .footer-bottom{border-color:#ffffff24;color:#cadbc2}
 .footer .link-arrow,.footer .eyebrow{color:#95e663}
 .footer .whatsapp-link{color:#25D366}
+/* Premium hero refresh: confident type, crisp Groovy photo, and a clear booking panel. */
+.hero{isolation:isolate;min-height:min(760px,calc(100svh - 64px));background:#13251a}
+.hero:before{inset:0;background-image:linear-gradient(90deg,#102016f5 0%,#102016e8 30%,#102016a8 52%,#1020163d 78%,#10201655 100%),linear-gradient(0deg,#102016af 0%,transparent 38%),url('../assets/groovy-hero.jpg');background-size:100% 100%,100% 100%,cover;background-position:center,center,68% center;background-repeat:no-repeat;filter:none;transform:scale(1.005)}
+.hero:after{inset:0;background:radial-gradient(ellipse at 72% 34%,#a4dc7630 0%,transparent 29%),linear-gradient(180deg,#101a1220 0%,transparent 45%,#101a1240 100%);pointer-events:none}
+.hero-inner{width:min(1320px,calc(100% - 64px));min-height:min(760px,calc(100svh - 64px));grid-template-columns:minmax(0,1.08fr) minmax(360px,.78fr);gap:clamp(40px,7vw,100px);align-items:center;padding-block:48px}
+.hero-copy{max-width:640px;padding:38px 0}
+.hero h1{max-width:9ch;margin:0 0 26px;color:#fffdf5;font-size:clamp(3.4rem,6vw,5.65rem);line-height:.99;letter-spacing:-.065em;text-shadow:0 8px 42px #07120bd1}
+.hero h1 .serif{color:#c7eea6;font-weight:var(--font-weight-body);letter-spacing:-.055em}
+.hero-buttons{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 25px}
+.hero-buttons .btn{min-height:52px;padding-inline:21px;border-radius:10px;font-size:.92rem}
+.hero-buttons .btn-gold{background:linear-gradient(125deg,#c8efaa,#86d752 66%,#6fc43d);border-color:#b3e99b;color:#17301b;box-shadow:0 12px 28px #07120b59,inset 0 1px 0 #f4ffe9}
+.hero-buttons .btn-gold:hover{background:linear-gradient(125deg,#dcf8c6,#98e468 66%,#80d64b)}
+.hero-buttons .whatsapp-cta{background:#25d366;color:#11301b;border-color:#65e696;box-shadow:0 10px 26px #07120b48}
+.hero-meta{display:flex;flex-wrap:wrap;gap:9px;color:#eff6eb;font-size:.77rem}
+.hero-meta span{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid #ffffff32;border-radius:999px;background:#f8fff10e;backdrop-filter:blur(8px);line-height:1.25}
+.hero-meta span:before{content:'✓';display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#b9e895;color:#17301b;font-size:.68rem;font-weight:700}
+.hero-inner>#book{width:100%;max-width:480px;justify-self:end}
+#quick-book.booking-card{padding:26px;border:1px solid #ffffffb8;border-radius:20px;background:linear-gradient(150deg,#fffefaF5 0%,#f4f8eff2 58%,#eaf4e3f2 100%);box-shadow:0 32px 90px #06120b75,inset 0 1px 0 #fff;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+#quick-book h2{font-size:1.55rem;letter-spacing:-.045em}
+#quick-book .service-tabs{margin-bottom:17px}
+#quick-book .field input,#quick-book .field select,#quick-book .field textarea{border-radius:9px}
+#quick-book>.btn{min-height:50px;border-radius:10px;box-shadow:0 9px 22px #17371f36}
+
+/* Keep the service-page hero family aligned with the home page. */
+.page-hero{position:relative;isolation:isolate;min-height:350px;display:flex;align-items:center;padding:64px 0 58px;background:linear-gradient(125deg,#14351d,#17251b 70%,#203b27);overflow:hidden}
+.page-hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#102016e8 0%,#102016bb 45%,#10201637 100%),linear-gradient(0deg,#10201655,transparent 55%);pointer-events:none}
+.page-hero>.wrap{width:min(1190px,calc(100% - 56px));position:relative;z-index:1}
+.page-hero h1{max-width:13ch;margin:0;color:#fffdf5;font-size:clamp(2.8rem,5.5vw,5rem);line-height:1.01;letter-spacing:-.06em;text-shadow:0 6px 34px #06120b66}
+.page-hero-actions{margin-top:24px;gap:11px}
+.page-hero-actions .btn{min-height:49px;padding-inline:20px;border-radius:10px}
+.page-hero-airport:before,.page-hero-local:before,.page-hero-outstation:before{filter:saturate(1.1) brightness(.9);transform:scale(1.01)}
+@media(max-width:900px){.hero-inner{grid-template-columns:minmax(0,1fr) minmax(330px,.88fr);gap:34px;width:calc(100% - 48px)}.hero h1{font-size:clamp(3rem,6vw,4.6rem)}}
+@media(max-width:760px){
+ .hero,.hero-inner{min-height:0}
+ .hero:before{background-image:linear-gradient(90deg,#102016b8 0%,#1020165e 55%,#10201618 100%),linear-gradient(180deg,#10201618 0%,#10201648 34%,#102016e8 62%,#13251a 100%),url('../assets/groovy-hero.jpg');background-size:100% 100%,100% 100%,auto 390px;background-position:center,center,66% top;background-repeat:no-repeat;transform:none}
+ .hero:after{background:linear-gradient(180deg,#10201610 0%,transparent 25%,#10201622 42%,#13251a4d 60%,transparent 100%)}
+ .hero-inner{width:calc(100% - 36px);max-width:580px;grid-template-columns:minmax(0,1fr);gap:0;padding:0 0 24px}
+ .hero-copy{padding:46px 0 22px;max-width:500px}
+ .hero h1{max-width:10ch;margin-bottom:20px;font-size:clamp(3rem,11vw,4.15rem);line-height:.98}
+ .hero-buttons{gap:9px;margin-bottom:16px}
+ .hero-buttons .btn{min-height:48px;padding-inline:16px;font-size:.84rem}
+ .hero-meta{gap:7px;font-size:.71rem}
+ .hero-meta span{padding:7px 10px;background:#1120169c;border-color:#ffffff38}
+ #quick-book.booking-card{padding:19px;border-radius:16px;box-shadow:0 20px 54px #07120b58,inset 0 1px 0 #fff}
+ #quick-book h2{font-size:1.38rem}
+ .page-hero{min-height:0;padding:50px 0 42px}
+ .page-hero>.wrap{width:calc(100% - 36px)}
+ .page-hero h1{max-width:12ch;font-size:clamp(2.55rem,9.5vw,3.7rem);line-height:1.02}
+ .page-hero-actions{margin-top:20px}
+ .page-hero-airport:before,.page-hero-local:before,.page-hero-outstation:before{filter:saturate(1.12) brightness(.94)}
+}
+@media(max-width:390px){.hero-inner{width:calc(100% - 32px)}.hero-copy{padding-top:40px}.hero h1{font-size:clamp(2.75rem,11vw,3.35rem)}#quick-book.booking-card{padding:17px}.hero-meta span{font-size:.68rem;padding:7px 9px}.page-hero>.wrap{width:calc(100% - 32px)}}
+@media(prefers-reduced-motion:reduce){.hero:before,.page-hero:before{transform:none}}
 
 
 /* Conversion-first Groovy Cabs refinements */
@@ -86,4 +139,72 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
 
 .home-rate-note{margin:10px 0 0;padding-top:10px;border-top:1px solid #d9e7d0;color:#536953;font-size:.78rem;line-height:1.45}
 .home-rate-prices{min-width:0}
+
+
+/* Groovy lime brand pass: replace deep-green surfaces with the sampled brand green. */
+:root{--brand-lime:#81da46;--brand-lime-light:#a0e56e;--brand-lime-deep:#6ec53a;--forest:#81da46;--forest2:#81da46;--gold:#81da46;--parrot:#81da46;--parrot-bright:#97e35f;--parrot-deep:#6ec53a;--parrot-soft:#e8f7db;--ink:#172019;--muted:#526152}
+.brand-mark{background:linear-gradient(145deg,#a0e56e,#81da46);color:#172019}
+.btn-primary{background:linear-gradient(135deg,#94e65c,#81da46 58%,#70c93d);border-color:#6dbd3d;color:#172019;box-shadow:0 8px 22px #406d2830,inset 0 1px 0 #ffffff9c}
+.btn-primary:hover{background:linear-gradient(135deg,#a8ed79,#8ce34f 58%,#7bd447);color:#142018}
+.btn-gold{background:linear-gradient(120deg,#a0e56e,#81da46 58%,#70c93d);border-color:#73c743;color:#172019}
+.btn-gold:hover{background:linear-gradient(120deg,#b0ec86,#91e052 58%,#7dd348);color:#172019}
+.hero{background:#81da46}
+.hero:before{background-image:linear-gradient(90deg,#81da46 0%,#81da46 30%,#81da46e8 45%,#81da4680 62%,#08110c70 100%),linear-gradient(0deg,#08110c35 0%,transparent 45%),url('../assets/groovy-hero.jpg');background-size:100% 100%,100% 100%,cover;background-position:center,center,68% center;filter:none}
+.hero:after{background:radial-gradient(ellipse at 72% 34%,#ffffff32 0%,transparent 30%),linear-gradient(180deg,#ffffff16 0%,transparent 45%,#15201816 100%)}
+.hero h1{color:#172019;text-shadow:0 2px 14px #ffffff55}
+.hero h1 .serif{color:#203823}
+.hero-meta{color:#172019}
+.hero-meta span{background:#f5ffedc9;border-color:#2e562833;backdrop-filter:blur(8px)}
+.hero-meta span:before{background:#203823;color:#efffe6}
+.hero-buttons .btn-gold{background:linear-gradient(125deg,#b1ec83,#8de253 66%,#76d03d);border-color:#d6f3c1;color:#152019}
+.hero-buttons .whatsapp-cta{background:#25d366;border-color:#e0ffea;color:#10301b}
+#quick-book.booking-card{border-color:#ffffffd9;box-shadow:0 30px 80px #264b1c40,inset 0 1px 0 #fff}
+#quick-book .service-tabs{background:linear-gradient(135deg,#81da46,#91df5d);border-color:#72c63d;box-shadow:inset 0 1px 0 #ffffffb0,0 6px 16px #335c2520}
+#quick-book .service-tabs button{color:#21301f}
+#quick-book .service-tabs button.active{background:#f8fff3;color:#172019;box-shadow:0 3px 9px #29462125}
+#quick-book .service-tabs button:hover:not(.active){background:#ffffff70;color:#172019}
+#quick-book.booking-card .service-tabs,.booking-card .service-tabs{background:linear-gradient(135deg,#81da46,#91df5d);border-color:#72c63d;box-shadow:inset 0 1px 0 #ffffffb0,0 6px 16px #335c2520}
+#quick-book .service-tabs button,.booking-card .service-tabs button{color:#21301f}
+#quick-book .service-tabs button.active,.booking-card .service-tabs button.active{background:#f8fff3;color:#172019}
+#quick-book>.btn{background:linear-gradient(135deg,#96e45f,#70c93b);border-color:#6fbd3d;color:#172019}
+#quick-book>.btn:hover{background:linear-gradient(135deg,#a6eb75,#7ed54b)}
+.page-hero{background:#81da46;color:#172019}
+.page-hero:after{background:linear-gradient(90deg,#08110bd9 0%,#08110bb8 45%,#08110b4a 100%),linear-gradient(0deg,#08110b3b,transparent 55%)}
+.page-hero:not(.page-hero-airport):not(.page-hero-local):not(.page-hero-outstation):after{display:none}
+.page-hero:not(.page-hero-airport):not(.page-hero-local):not(.page-hero-outstation) h1{color:#172019;text-shadow:none}
+.page-hero-airport,.page-hero-local,.page-hero-outstation{background:#81da46}
+.page-hero-airport:before,.page-hero-local:before,.page-hero-outstation:before{filter:saturate(1.12) brightness(.92)}
+.page-hero-actions .btn-primary{background:linear-gradient(135deg,#a0e56e,#81da46);border-color:#c9edb4;color:#172019}
+.cta-band{background:linear-gradient(135deg,#a0e56e 0%,#81da46 55%,#70c93d 100%);color:#172019}
+.cta-band p{color:#263a26}
+.cta-band .btn-outline{border-color:#25452c;color:#172019}
+.footer{background:linear-gradient(145deg,#a0e56e 0%,#81da46 58%,#70c93d 100%);border-top:1px solid #69bd39;color:#172019}
+.footer p,.footer-links,.footer-bottom{color:#263a26}
+.footer h3,.footer .link-arrow{color:#172019}
+.footer .footer-bottom{border-color:#28432440}
+.footer .whatsapp-link{color:#176d37}
+.footer-links a:hover{color:#000}
+.journey-promise-card{background:radial-gradient(ellipse at 100% 0,#b3ee8d 0,transparent 42%),linear-gradient(145deg,#a0e56e,#81da46 60%,#70c93d);border-color:#75c543;color:#172019;box-shadow:0 22px 56px #3e672723}
+.journey-promise-card:after{color:#ffffff36}
+.journey-promise-card>p,.journey-promise-card li span{color:#2e432d}
+.journey-promise-card li strong{color:#172019}
+.journey-promise-card li{border-color:#28432435}
+.journey-card-kicker{color:#304d27}
+.vehicle-carousel-rail>.vehicle-card{background:linear-gradient(155deg,#a0e56e 0%,#81da46 58%,#70c93d 100%);border-color:#69ba3b;color:#172019;box-shadow:0 16px 36px #3e672728}
+.vehicle-carousel-rail>.vehicle-card:hover{border-color:#4f9a30;box-shadow:0 22px 42px #31551f38}
+.vehicle-carousel-rail .vehicle-content h3,.vehicle-carousel-rail .price{color:#172019}
+.vehicle-carousel-rail .seats{color:#294526}
+.vehicle-carousel-rail .vehicle-note,.vehicle-carousel-rail .price small,.vehicle-carousel-rail .check-list{color:#30432f}
+.vehicle-carousel-rail .check-list li{border-color:#29452630}
+.vehicle-carousel-rail .check-list li:before{color:#244926}
+.vehicle-carousel-rail .vehicle-card .btn,.vehicle-carousel-rail .btn-light{background:linear-gradient(135deg,#fbfff5,#e5f5d9);border-color:#4e9234;color:#172019;box-shadow:0 6px 14px #37572324}
+.vehicle-carousel-rail .btn-light:hover{background:#fff}
+@media(max-width:760px){
+ .hero:before{background-image:linear-gradient(90deg,#81da46f0 0%,#81da46c9 52%,#81da463b 100%),linear-gradient(180deg,#ffffff05 0%,#ffffff05 35%,#81da46b8 64%,#81da46 100%),url('../assets/groovy-hero.jpg');background-size:100% 100%,100% 100%,auto 390px;background-position:center,center,66% top;background-repeat:no-repeat;filter:none}
+ .hero:after{background:linear-gradient(180deg,#ffffff08 0%,transparent 30%,#81da4640 54%,#81da46 74%,transparent 100%)}
+ .hero h1{color:#172019;text-shadow:0 2px 12px #ffffff70}
+ .hero-meta span{background:#f7ffeff0}
+ .page-hero:not(.page-hero-airport):not(.page-hero-local):not(.page-hero-outstation){background:#81da46}
+ .footer{background:linear-gradient(145deg,#a0e56e,#81da46 62%,#70c93d)}
+}
 

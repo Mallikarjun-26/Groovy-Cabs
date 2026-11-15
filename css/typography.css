@@ -94,6 +94,38 @@ h3 *,h4 *,h5 *,h6 *,button *, .btn *,label *,summary *{font-weight:var(--font-we
   .footer-grid>div:first-child{grid-column:auto}
 }
 
+/* Mobile home hero: separate the photo from the headline and avoid duplicate CTAs. */
+@media(max-width:760px){
+  .hero{background:#81da46;color:#172019}
+  .hero:before{
+    inset:0;
+    background-image:linear-gradient(180deg,transparent 58%,#81da46 100%),url('../assets/groovy-hero.jpg');
+    background-size:100% 292px,auto 292px;
+    background-position:center top,55% top;
+    background-repeat:no-repeat;
+    background-color:#81da46;
+    filter:none;
+    transform:none;
+  }
+  .hero:after{background:none}
+  .hero-inner{padding:300px 0 22px}
+  .hero-copy{padding:8px 0 16px}
+  .hero h1{max-width:11ch;margin:0 0 17px;color:#172019;font-size:clamp(2.55rem,10vw,3.5rem);line-height:1.01;letter-spacing:-.055em;text-shadow:none}
+  .hero h1 .serif{color:#203823}
+  .hero-buttons{display:none}
+  .hero-meta{gap:7px;color:#1e3520}
+  .hero-meta span{padding:7px 10px;border-color:#23462436;background:#eff9e8;color:#213321;backdrop-filter:none}
+  .hero-meta span:before{background:#81da46;color:#172019}
+  .hero-inner>#book{max-width:none}
+  #quick-book.booking-card{margin-top:2px;padding:18px;border:1px solid #ffffff;border-radius:16px;background:#f9fff5;box-shadow:0 14px 36px #345c2220}
+}
+@media(max-width:390px){
+  .hero-inner{padding-top:286px}
+  .hero:before{background-size:100% 278px,auto 278px}
+  .hero-copy{padding-top:5px}
+  .hero h1{font-size:clamp(2.4rem,10.5vw,3.05rem)}
+}
+
 /* Full-height mobile navigation: every link begins at the top of the panel. */
 .eyebrow{display:none!important}
 .hero-copy>p,.page-hero p,.route-simple-heading p{display:none!important}
