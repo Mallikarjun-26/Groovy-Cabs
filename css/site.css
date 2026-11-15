@@ -468,3 +468,7 @@ img,svg,video,canvas{max-width:100%}
 .vehicle-tag{min-height:23px;padding-inline:8px;font-size:.58rem;letter-spacing:.025em;box-shadow:0 4px 12px #10181138}
 .vehicle-carousel-rail>.vehicle-card>.vehicle-tag{top:11px;left:11px}
 
+
+/* Booking labels stay accessible while the form keeps a clean visual layout. */
+.booking-card .field label,.booking-modal .field label{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.booking-card .booking-kicker,.booking-modal [data-booking-kicker]{display:none!important}
