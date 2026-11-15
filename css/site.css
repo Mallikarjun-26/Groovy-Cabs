@@ -531,3 +531,10 @@ main .hero-copy>p,main .page-hero .wrap>p,main .section-head>p,main .journey-hea
 
 /* Fleet images: consistent height and full-vehicle framing across every carousel. */
 .home-rate-card>img,.local-rate-card>img,.vehicle-carousel-rail>.vehicle-card>img{display:block;width:100%;height:156px!important;min-height:156px!important;max-height:156px!important;flex:0 0 156px!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center;background:linear-gradient(180deg,#f8faf5 0%,#eef3e8 100%);padding:8px 16px;border-bottom:1px solid #dfe8d8}
+
+
+/* Mobile booking: keep date and time labels and native values legible. */
+@media(max-width:760px){
+  #quick-book .field:has(#q-date)>label,#quick-book .field:has(#q-time)>label,.booking-modal .modal-step .field:has(#m-date)>label,.booking-modal .modal-step .field:has(#m-time)>label{position:static!important;display:block!important;width:auto!important;height:auto!important;padding:0!important;margin:0 0 2px!important;overflow:visible!important;clip:auto!important;clip-path:none!important;white-space:normal!important;border:0!important;color:#415346!important;font-size:.84rem!important;font-weight:var(--font-weight-subheading)!important;line-height:1.35!important;text-align:left}
+  #quick-book input[type=date],#quick-book input[type=time],.booking-modal input[type=date],.booking-modal input[type=time]{height:52px!important;min-height:52px;color:#17241c!important;-webkit-text-fill-color:#17241c!important;color-scheme:light;font-size:.92rem!important;opacity:1}
+}
