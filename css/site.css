@@ -525,3 +525,6 @@ img,svg,video,canvas{max-width:100%}
   main .wrap.split .service-row>a{grid-column:auto;min-height:44px;margin:0;padding:0 12px;justify-self:center;align-self:center;border-radius:999px;color:#386d3d;font-size:.86rem;font-weight:700}
   main .wrap.split .photo-panel{order:2;min-height:250px}
 }
+
+/* Remove decorative explanatory subtitles while preserving essential details and FAQs. */
+main .hero-copy>p,main .page-hero .wrap>p,main .section-head>p,main .journey-heading>p,main .wrap.split>div:not(.photo-panel)>p,main .service-row p,main .route-card p,main .vehicle-note,main .journey-promise-card>p,main .journey-steps-card ol li p,main .feature p,main .step p,main .about-values p,main .contact-profile-card p{display:none!important}
