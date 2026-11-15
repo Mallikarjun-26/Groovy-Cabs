@@ -408,3 +408,8 @@ main>.contact-section .owner-profile-top{display:flex;flex-direction:column!impo
 main>.contact-section .owner-avatar{margin:0!important}
 main>.contact-section .owner-profile-top h2{margin:0!important;color:var(--ink)!important;text-align:center!important}
 main>.contact-section .owner-profile-top .owner-designation{display:block!important;margin:0!important;color:var(--muted)!important;font-size:.95rem!important;line-height:1.4!important;text-align:center!important}
+/* Give the Contact page owner identity more presence. */
+main>.contact-section .owner-avatar{width:148px!important;height:148px!important;font-size:3.4rem!important}
+main>.contact-section .owner-profile-top h2{font-size:clamp(2rem,3vw,2.5rem)!important;line-height:1.12!important}
+main>.contact-section .owner-profile-top .owner-designation{font-size:1.15rem!important}
+@media(max-width:760px){main>.contact-section .owner-avatar{width:132px!important;height:132px!important;font-size:3rem!important}main>.contact-section .owner-profile-top h2{font-size:2.15rem!important}main>.contact-section .owner-profile-top .owner-designation{font-size:1.08rem!important}}
