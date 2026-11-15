@@ -99,7 +99,7 @@ h3 *,h4 *,h5 *,h6 *,button *, .btn *,label *,summary *{font-weight:var(--font-we
   .hero{background:#81da46;color:#172019}
   .hero:before{
     inset:0;
-    background-image:linear-gradient(180deg,transparent 58%,#81da46 100%),url('../assets/groovy-hero.jpg');
+    background-image:linear-gradient(180deg,#81da4624 0%,#81da4633 58%,#81da46 100%),url('../assets/groovy-hero.jpg');
     background-size:100% 292px,auto 292px;
     background-position:center top,55% top;
     background-repeat:no-repeat;
