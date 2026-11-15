@@ -242,3 +242,12 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
 .home-rate-card .home-rate-enquire{min-height:46px;border:1px solid #5bae31;border-radius:10px;background:linear-gradient(120deg,#9ae763 0%,#79d342 58%,#62be31 100%);box-shadow:0 8px 18px #367b2738;color:#17251b;font-size:.86rem;font-weight:700}
 .home-rate-card .home-rate-enquire:hover{background:linear-gradient(120deg,#b0ed82 0%,#8ade4e 58%,#6aca39 100%);box-shadow:0 11px 22px #367b2742}
 .home-rate-card .home-rate-enquire:focus-visible{outline:3px solid #193d2a;outline-offset:3px}
+
+/* Vehicle image scale and tag clarity: consistent vehicle footprint, readable labels, and filled silver panels. */
+.home-rate-card.local-rate-card .local-rate-content{background:linear-gradient(145deg,#d4dbe1 0%,#c5cdd4 58%,#b9c2ca 100%)}
+.home-rate-card>img[alt^="Innova Crysta"]{transform:scale(1.17)}
+.home-rate-card>img[alt^="Tempo Traveller"]{transform:scale(1.2,1.04)}
+.home-rate-card>img[alt^="Mini Bus"]{transform:scale(1.04)}
+.home-rate-card>.vehicle-tag{top:12px;left:12px;z-index:3;display:inline-flex;width:max-content;max-width:calc(100% - 24px);min-height:32px;align-items:center;padding:0 12px;border:1px solid #163a26;border-radius:999px;background:#163a26;color:#fff;font-size:.7rem;font-weight:700;line-height:1;letter-spacing:.025em;white-space:nowrap;box-shadow:0 5px 14px #101a1340}
+.home-rate-card>.vehicle-tag-featured{border-color:#4d982c;background:linear-gradient(120deg,#a0e56e,#79d342);color:#17321e}
+@media(max-width:760px){.home-rate-card>img[alt^="Innova Crysta"]{transform:scale(1.16)}.home-rate-card>img[alt^="Tempo Traveller"]{transform:scale(1.18,1.03)}.home-rate-card>img[alt^="Mini Bus"]{transform:scale(1.04)}}
