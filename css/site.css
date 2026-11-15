@@ -510,3 +510,18 @@ img,svg,video,canvas{max-width:100%}
   #main>.hero .hero-copy h1,#main>.hero .hero-copy>p{margin-inline:auto}
   #main>.hero .hero-buttons,#main>.hero .hero-meta{justify-content:center}
 }
+
+/* Mobile service section: balanced introduction and compact, centered service cards. */
+@media(max-width:760px){
+  main .wrap.split{grid-template-columns:minmax(0,1fr);gap:24px}
+  main .wrap.split>div:not(.photo-panel){width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+  main .wrap.split>div:not(.photo-panel)>h2{max-width:16ch;margin:0 auto 14px;text-align:center;line-height:1.14;text-wrap:balance}
+  main .wrap.split>div:not(.photo-panel)>p{max-width:37ch;margin:0 auto;text-align:center;font-size:.96rem;line-height:1.58}
+  main .wrap.split .service-list{width:100%;max-width:480px;gap:12px;margin:22px auto 0}
+  main .wrap.split .service-row{display:grid;grid-template-columns:1fr;justify-items:center;gap:8px;padding:19px 16px 17px;background:linear-gradient(145deg,#fffefa,#f7faf4);border:1px solid #dfe8da;border-radius:16px;box-shadow:0 8px 24px #233c2010;text-align:center}
+  main .wrap.split .service-no{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:linear-gradient(145deg,#dff2d4,#b4e296);color:#32643a;font-size:.94rem}
+  main .wrap.split .service-row h3{margin:0;font-size:1.04rem;line-height:1.25;text-align:center}
+  main .wrap.split .service-row p{max-width:31ch;margin:0 auto;color:#657268;font-size:.87rem;line-height:1.5;text-align:center}
+  main .wrap.split .service-row>a{grid-column:auto;min-height:44px;margin:0;padding:0 12px;justify-self:center;align-self:center;border-radius:999px;color:#386d3d;font-size:.86rem;font-weight:700}
+  main .wrap.split .photo-panel{order:2;min-height:250px}
+}
