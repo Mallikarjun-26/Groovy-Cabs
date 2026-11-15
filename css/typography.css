@@ -95,24 +95,33 @@ h3 *,h4 *,h5 *,h6 *,button *, .btn *,label *,summary *{font-weight:var(--font-we
 }
 
 /* Full-height mobile navigation: every link begins at the top of the panel. */
+.eyebrow{display:none!important}
+.hero-copy>p,.page-hero p,.route-simple-heading p{display:none!important}
 @media(max-width:760px){
   .nav{z-index:60}
   .nav-links,.nav-links.open{
     position:fixed;
-    inset:calc(64px + env(safe-area-inset-top)) 0 0;
+    inset:calc(64px + env(safe-area-inset-top)) 0 0!important;
     z-index:61;
-    width:100%;
-    height:auto;
-    max-height:none;
+    width:100vw;
+    height:calc(100dvh - 64px - env(safe-area-inset-top))!important;
+    max-height:none!important;
     overflow-y:auto;
     overscroll-behavior:contain;
     align-items:stretch;
     justify-content:flex-start;
     gap:0;
-    padding:14px 22px calc(26px + env(safe-area-inset-bottom));
-    background:linear-gradient(180deg,#eff6e9 0%,#e5f0df 100%);
+    padding:18px 22px calc(26px + env(safe-area-inset-bottom));
+    background:#e8f0e5;
     border-top:1px solid #d4e2ce;
     -webkit-overflow-scrolling:touch;
+  }
+  body.menu-open::after{
+    content:'';
+    position:fixed;
+    inset:calc(64px + env(safe-area-inset-top)) 0 0;
+    z-index:59;
+    background:#e8f0e5;
   }
   .nav-links{display:none}
   .nav-links.open{display:flex}
