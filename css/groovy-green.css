@@ -225,3 +225,20 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
 .home-rate-card .home-rate-enquire:hover{background:linear-gradient(120deg,#b0ee82 0%,#90e353 58%,#7ad344 100%);box-shadow:0 10px 20px #3d812333}
 .home-rate-card .home-rate-enquire:focus-visible{outline:3px solid #234c31;outline-offset:3px}
 @media(max-width:760px){.home-rate-card .home-rate-prices span{font-size:.82rem}.home-rate-card .home-rate-prices strong{font-size:.94rem}}
+
+/* Silver fleet cards: confident neutral surfaces, dark readable rates, and Groovy green accents. */
+.home-rate-card.local-rate-card{border:1px solid #93a0aa;border-top:3px solid #79d342;background:linear-gradient(145deg,#eef1f4 0%,#d9dfe4 54%,#c8d0d7 100%);color:#1b2821;box-shadow:0 16px 34px #24313d24,inset 0 1px 0 #ffffffb8}
+.home-rate-card.local-rate-card:hover{border-color:#6dbd3d;border-top-color:#5ab92c;box-shadow:0 22px 42px #24313d32,inset 0 1px 0 #ffffffcc}
+.home-rate-card>img{background:linear-gradient(180deg,#f5f7f8 0%,#dfe4e8 100%);border-bottom:1px solid #b7c0c7}
+.home-rate-card .local-rate-content h3{color:#193d2a}
+.home-rate-card .local-rate-content h3 span{color:#405248}
+.home-rate-card .home-rate-prices{border-color:#aeb8c0}
+.home-rate-card .home-rate-prices>div{border-color:#b8c1c8}
+.home-rate-card .home-rate-prices span{color:#35453c;font-size:.82rem}
+.home-rate-card .home-rate-prices strong{color:#174a2b;font-size:.96rem;font-weight:700}
+.home-rate-card .home-rate-note{display:none!important}
+.home-rate-card .vehicle-tag{border-color:#1f4930;background:#1f4930;color:#fff;box-shadow:0 5px 14px #172a1f35;backdrop-filter:none;-webkit-backdrop-filter:none}
+.home-rate-card .vehicle-tag-featured{border-color:#5cae32;background:linear-gradient(120deg,#a0e56e,#79d342);color:#17321e}
+.home-rate-card .home-rate-enquire{min-height:46px;border:1px solid #5bae31;border-radius:10px;background:linear-gradient(120deg,#9ae763 0%,#79d342 58%,#62be31 100%);box-shadow:0 8px 18px #367b2738;color:#17251b;font-size:.86rem;font-weight:700}
+.home-rate-card .home-rate-enquire:hover{background:linear-gradient(120deg,#b0ed82 0%,#8ade4e 58%,#6aca39 100%);box-shadow:0 11px 22px #367b2742}
+.home-rate-card .home-rate-enquire:focus-visible{outline:3px solid #193d2a;outline-offset:3px}
