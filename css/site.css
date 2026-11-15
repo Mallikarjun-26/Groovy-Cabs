@@ -481,3 +481,8 @@ img,svg,video,canvas{max-width:100%}
   #main>.hero .hero-buttons{width:100%;justify-content:center;flex-wrap:wrap}
   #main>.hero .hero-meta{justify-content:center;flex-wrap:wrap;gap:10px 18px}
 }
+
+/* Booking form: restore clear date/time labels and contrast for the next-step action. */
+.modal-step .field:has(#m-date) label,.modal-step .field:has(#m-time) label{position:static!important;width:auto;height:auto;padding:0;margin:0;overflow:visible;clip:auto;white-space:normal;border:0;color:#536058;font-size:.76rem;line-height:1.35}
+.modal-actions .btn-primary{background:linear-gradient(135deg,#94e65c,#81da46 58%,#70c93d)!important;color:#172019!important;border-color:#6dbd3d!important;box-shadow:0 8px 22px #406d2830,inset 0 1px 0 #ffffff9c}
+.modal-actions .btn-primary:hover{background:linear-gradient(135deg,#a8ed79,#8ce34f 58%,#7bd447)!important;color:#142018!important}
