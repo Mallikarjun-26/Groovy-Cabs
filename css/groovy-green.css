@@ -279,3 +279,6 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
   main .booking-card .field label{text-align:left}
   main .booking-card input,main .booking-card select,main .booking-card textarea{text-align:left}
 }
+
+/* Remove the oversized decorative N watermark from the promise card. */
+.journey-promise-card:after{content:none!important}
