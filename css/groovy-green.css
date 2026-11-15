@@ -378,6 +378,7 @@ input:focus,select:focus,textarea:focus,.route-card:focus-visible{outline-color:
 
 /* Compact the mobile footer into calm, readable two-column groups. */
 .footer .whatsapp-link{color:#173f27!important}
+.footer .whatsapp-link .whatsapp-icon{color:#000!important;fill:#000!important}
 @media(max-width:760px){
   #app>.footer{padding:22px 0 calc(82px + env(safe-area-inset-bottom))!important}
   #app>.footer>.wrap{width:calc(100% - 32px)}
