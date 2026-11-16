@@ -17,3 +17,7 @@
 .field-inline-label.has-value>label{display:none!important}
 .field-inline-label.has-value>input{padding-left:14px!important}
 
+
+/* Ensure the selected date/time clears its inline label even against legacy high-specificity field rules. */
+#quick-book .field.field-inline-label.has-value:has(#q-date)>label,#quick-book .field.field-inline-label.has-value:has(#q-time)>label,.booking-modal .field.field-inline-label.has-value:has(#m-date)>label,.booking-modal .field.field-inline-label.has-value:has(#m-time)>label{display:none!important}
+#quick-book .field.field-inline-label.has-value:has(#q-date)>input,#quick-book .field.field-inline-label.has-value:has(#q-time)>input,.booking-modal .field.field-inline-label.has-value:has(#m-date)>input,.booking-modal .field.field-inline-label.has-value:has(#m-time)>input{padding-left:14px!important}
