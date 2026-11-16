@@ -3,7 +3,7 @@
   const data = window.CAB_DATA || {};
   const basePath = window.NANDI_BASE_PATH || '';
   const currentPath = basePath && location.pathname.startsWith(basePath) ? location.pathname.slice(basePath.length) || '/' : location.pathname;
-  const path = decodeURI(currentPath).replace(/\/$/, '') || '/';
+  let decodedPath;try{decodedPath=decodeURI(currentPath)}catch{decodedPath=currentPath}const path = decodedPath.replace(/\/$/, '') || '/';
   const parts = path.split('/').filter(Boolean);
   const route = data.routes?.find(item => item.slug === parts[1]);
   const page = route ? 'route' : parts[0] || 'home';
@@ -24,7 +24,7 @@
     home: 'Book Bengaluru airport cabs, local taxis and outstation rides. Compare vehicles and request a clear fare directly with our team.',
     'airport-cabs': 'Request a Bengaluru airport cab to or from Kempegowda International Airport. Share your pickup time, flight details and passenger count.',
     'local-cabs': 'Book a local cab in Bengaluru for errands, meetings or a full day. Compare 4-hour and 8-hour vehicle packages and request a fare.',
-    'outstation-cabs': 'Arrange a one-way or round-trip outstation cab from Bengaluru. Compare vehicle rates and confirm trip details directly.',
+    'outstation-cabs': 'Arrange a round-trip outstation cab from Bengaluru for at least two days. Compare vehicle rates and confirm trip details directly.',
     routes: 'Browse popular cab routes from Bengaluru, including Mysore, Coorg, Ooty, Goa, Tirupati and Chennai. Check trip estimates and places to visit.',
     about: `${brand} helps passengers arrange airport, local and outstation cab rides from Bengaluru with trip and fare details agreed in advance.`,
     contact: 'Contact the Bengaluru cab team to ask about airport transfers, local rides, outstation routes, vehicle availability and fares.',
@@ -123,4 +123,3 @@
     mobileCtaTargets.forEach(target => observer.observe(target));
   }
 })();
-

@@ -468,7 +468,6 @@ img,svg,video,canvas{max-width:100%}
 .vehicle-tag{min-height:23px;padding-inline:8px;font-size:.58rem;letter-spacing:.025em;box-shadow:0 4px 12px #10181138}
 .vehicle-carousel-rail>.vehicle-card>.vehicle-tag{top:11px;left:11px}
 
-
 /* Booking labels stay accessible while the form keeps a clean visual layout. */
 .booking-card .field label,.booking-modal .field label{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .booking-card .booking-kicker,.booking-modal [data-booking-kicker]{display:none!important}
@@ -529,12 +528,13 @@ img,svg,video,canvas{max-width:100%}
 /* Remove decorative explanatory subtitles while preserving essential details and FAQs. */
 main .hero-copy>p,main .page-hero .wrap>p,main .section-head>p,main .journey-heading>p,main .wrap.split>div:not(.photo-panel)>p,main .service-row p,main .route-card p,main .vehicle-note,main .journey-promise-card>p,main .journey-steps-card ol li p,main .feature p,main .step p,main .about-values p,main .contact-profile-card p{display:none!important}
 
-/* Fleet images: consistent height and full-vehicle framing across every carousel. */
+/* Fleet images: consistent height, full-vehicle framing across every carousel. */
 .home-rate-card>img,.local-rate-card>img,.vehicle-carousel-rail>.vehicle-card>img{display:block;width:100%;height:156px!important;min-height:156px!important;max-height:156px!important;flex:0 0 156px!important;aspect-ratio:auto!important;object-fit:contain!important;object-position:center;background:linear-gradient(180deg,#f8faf5 0%,#eef3e8 100%);padding:8px 16px;border-bottom:1px solid #dfe8d8}
 
 
 /* Mobile booking: keep date and time labels and native values legible. */
 @media(max-width:760px){
   #quick-book .field:has(#q-date)>label,#quick-book .field:has(#q-time)>label,.booking-modal .modal-step .field:has(#m-date)>label,.booking-modal .modal-step .field:has(#m-time)>label{position:static!important;display:block!important;width:auto!important;height:auto!important;padding:0!important;margin:0 0 2px!important;overflow:visible!important;clip:auto!important;clip-path:none!important;white-space:normal!important;border:0!important;color:#415346!important;font-size:.84rem!important;font-weight:var(--font-weight-subheading)!important;line-height:1.35!important;text-align:left}
-  #quick-book input[type=date],#quick-book input[type=time]{height:46px!important;min-height:46px;color:#17241c!important;-webkit-text-fill-color:#17241c!important;color-scheme:light;font-size:.92rem!important;opacity:1}\n  .booking-modal input[type=date],.booking-modal input[type=time]{height:48px!important;min-height:48px;color:#17241c!important;-webkit-text-fill-color:#17241c!important;color-scheme:light;font-size:.92rem!important;opacity:1}
+  #quick-book input[type=date],#quick-book input[type=time]{height:46px!important;min-height:46px;color:#17241c!important;-webkit-text-fill-color:#17241c!important;color-scheme:light;font-size:.92rem!important;opacity:1}
+  .booking-modal input[type=date],.booking-modal input[type=time]{height:48px!important;min-height:48px;color:#17241c!important;-webkit-text-fill-color:#17241c!important;color-scheme:light;font-size:.92rem!important;opacity:1}
 }

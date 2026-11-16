@@ -75,10 +75,9 @@ window.CAB_DATA = {
     ['Can I book in advance?','Yes. Choose your travel date and time, then send the trip details to request a booking. Advance notice is recommended for early morning trips and larger vehicles.'],
     ['How does outstation pricing work?','Indicative fares use the selected vehicle rate and the minimum kilometres per day. Tolls, parking and applicable night charges are added separately and confirmed before travel.'],
     ['Are tolls and parking included?','For outstation trips, tolls and parking are payable as incurred unless your confirmed quote says otherwise. Airport fares are estimates and must be confirmed for your pickup point.'],
-    ['Can I choose a one-way trip?','Yes. Select one-way or round-trip in the booking flow. Availability and the final fare depend on the route and travel date.'],
+    ['Are outstation trips round-trip?','Yes. Outstation bookings are round-trip only and require a minimum of two trip days. The team confirms the route and final fare before accepting the trip.'],
     ['When will I receive driver details?','Driver and vehicle details are shared after the trip is confirmed. Contact the team directly if your pickup is approaching and you have not received them.'],
     ['What is the cancellation policy?','Cancellation terms depend on the booking and timing. Ask the team to include the applicable terms in your confirmation.'],
     ['Can I pay online?','Payment options are confirmed when your booking is accepted. Do not send payment until you have received booking details from the operator.']
   ]
 };
-

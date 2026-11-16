@@ -25,4 +25,3 @@ Route cards can retrieve destination summaries and images from Wikipedia/Wikimed
 ## Hosting notes
 
 `_headers` provides baseline security headers for static hosts that honor this format. GitHub Pages does not apply `_headers`; configure equivalent headers at the hosting/CDN layer and verify the deployed HTTPS responses.
-

@@ -37,4 +37,3 @@
   }, { passive: true });
   document.addEventListener('focusin', handleIntent);
 })();
-

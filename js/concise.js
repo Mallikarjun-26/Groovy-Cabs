@@ -64,4 +64,3 @@
   if (window.innerWidth > 760) document.querySelector('.nav-links .mobile-menu-book')?.remove();
 })();
 
-
