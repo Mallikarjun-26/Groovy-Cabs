@@ -46,7 +46,6 @@
     } catch { img.hidden=true; return null; }
   };
   const loadRouteImage=async img=>{
-    const source=img.closest('.route-card')?.querySelector('.route-photo-credit');
     const candidates=[...new Set([img.dataset.wikiImage,...(img.dataset.wikiAlternates||'').split('|'),img.dataset.wikiFallback].filter(Boolean))];
     let page=null;
     for(const title of candidates){
@@ -62,14 +61,14 @@
         page=result;break;
       }catch{}
     }
-    if(!page){if(img.dataset.localRoutePhoto!=='true')img.hidden=true;if(source)source.textContent='Photo unavailable';return;}
+    if(!page){if(img.dataset.localRoutePhoto!=='true')img.hidden=true;return;}
     const routeName=window.CAB_DATA?.routes?.find(item=>item.slug===img.closest('.route-card')?.dataset.routeCard)?.name;
     img.alt=`${page.title} photo for the ${routeName||'Bengaluru'} cab route`;
-    if(source){source.href=page.content_urls?.desktop?.page||articleUrl(page.title);source.textContent='View photo source ↗';source.title='Wikipedia image source';}
     try {
       const c=await fileCredit(page.loadedImageSource||photoSource(page));
-      if(source){source.textContent=`Photo: ${c.artist} · ${c.license}`;source.href=c.fileUrl;source.title='Image credit and license details';}
-    }catch{if(source)source.textContent='Photo: Wikimedia Commons';}
+      img.dataset.photoCredit=`Photo: ${c.artist} · ${c.license}`;
+      img.dataset.photoCreditUrl=c.fileUrl;
+    }catch{img.dataset.photoCredit='Photo: Wikimedia Commons';}
   };  const routeImages=[...document.querySelectorAll('[data-wiki-image]')];
   if('IntersectionObserver' in window){
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.unobserve(entry.target);loadRouteImage(entry.target);}}),{rootMargin:'180px'});

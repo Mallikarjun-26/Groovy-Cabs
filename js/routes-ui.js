@@ -30,10 +30,23 @@
   const openRoute = async (route, trigger) => {
     if (!route) return;
     lastTrigger = trigger;
-    content.innerHTML = `<div class="route-detail-layout"><div class="route-detail-main"><span class="eyebrow">Bengaluru · ${esc(route.distance)} · ${esc(route.time)}</span><h2 id="route-dialog-title">Bengaluru to ${esc(route.name)}</h2><p class="route-detail-loading">Loading destination details…</p><a class="route-wiki-link" target="_blank" rel="noopener noreferrer" href="${esc(window.CAB_WIKIPEDIA?.articleUrl(route.wiki || route.name) || '#')}">Read on Wikipedia ↗</a><h3>Places to visit</h3><div class="route-detail-places"><p class="route-detail-loading">Loading places…</p></div></div><aside class="route-detail-aside"><img class="route-detail-photo" alt="${esc(route.name)}" hidden><h3>Vehicle rates</h3><ul class="route-rate-list">${(data.vehicles || []).map(vehicle => `<li><strong>${esc(vehicle.name)}</strong><span>${esc(vehicle.seats)} seats · ${money(vehicle.outstation)}/day</span><small>Minimum ${esc(vehicle.minKm)} km/day · driver allowance and route extras confirmed with the team</small></li>`).join('')}</ul></aside></div>`;
+    content.innerHTML = `<div class="route-detail-layout"><div class="route-detail-main"><span class="eyebrow">Bengaluru · ${esc(route.distance)} · ${esc(route.time)}</span><h2 id="route-dialog-title">Bengaluru to ${esc(route.name)}</h2><p class="route-detail-loading">Loading destination details…</p><a class="route-wiki-link" target="_blank" rel="noopener noreferrer" href="${esc(window.CAB_WIKIPEDIA?.articleUrl(route.wiki || route.name) || '#')}">Read on Wikipedia ↗</a><h3>Places to visit</h3><div class="route-detail-places"><p class="route-detail-loading">Loading places…</p></div></div><aside class="route-detail-aside"><img class="route-detail-photo" alt="${esc(route.name)}" hidden><a class="route-detail-photo-credit" target="_blank" rel="noopener noreferrer" hidden></a><h3>Vehicle rates</h3><ul class="route-rate-list">${(data.vehicles || []).map(vehicle => `<li><strong>${esc(vehicle.name)}</strong><span>${esc(vehicle.seats)} seats · ${money(vehicle.outstation)}/day</span><small>Minimum ${esc(vehicle.minKm)} km/day · driver allowance and route extras confirmed with the team</small></li>`).join('')}</ul></aside></div>`;
     dialog.showModal();
     const wiki = window.CAB_WIKIPEDIA;
     if (!wiki) return;
+    const routePhoto = trigger?.querySelector('.route-photo');
+    const photoCredit = content.querySelector('.route-detail-photo-credit');
+    if (routePhoto?.dataset.wikiImage) void (async () => {
+      try {
+        const cardImagePage = await wiki.summary(routePhoto.dataset.wikiImage);
+        const cardImageSource = wiki.photoSource(cardImagePage);
+        if (!cardImageSource) return;
+        const credit = await wiki.fileCredit(cardImageSource);
+        photoCredit.href = credit.fileUrl;
+        photoCredit.textContent = `Photo: ${credit.artist} · ${credit.license}`;
+        photoCredit.hidden = false;
+      } catch {}
+    })();
     const requested = route.wiki || route.name;
     const extract = content.querySelector('.route-detail-loading');
     try {
@@ -71,7 +84,6 @@
   dialog.querySelector('.route-detail-close').addEventListener('click', close);
   dialog.addEventListener('click', event => { if (event.target === dialog) close(); });
   document.addEventListener('click', event => {
-    if (event.target.closest('.route-photo-credit')) return;
     const card = event.target.closest('[data-route-card]');
     if (!card) return;
     const route = data.routes.find(item => item.slug === card.dataset.routeCard);
