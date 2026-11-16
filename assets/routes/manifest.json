@@ -1,0 +1,146 @@
+[
+  {
+    "key": "mysore",
+    "title": "Mysore Palace",
+    "file": "assets/routes/mysore.webp",
+    "article": "https://en.wikipedia.org/wiki/Mysore_Palace"
+  },
+  {
+    "key": "coorg",
+    "title": "Abbey Falls",
+    "file": "assets/routes/coorg.webp",
+    "article": "https://en.wikipedia.org/wiki/Abbey_Falls"
+  },
+  {
+    "key": "ooty",
+    "title": "Nilgiri Mountain Railway",
+    "file": "assets/routes/ooty.webp",
+    "article": "https://en.wikipedia.org/wiki/Nilgiri_Mountain_Railway"
+  },
+  {
+    "key": "chikmagalur",
+    "title": "Chikmagalur",
+    "file": "assets/routes/chikmagalur.webp",
+    "article": "https://en.wikipedia.org/wiki/Chikmagalur"
+  },
+  {
+    "key": "wayanad",
+    "title": "Edakkal caves",
+    "file": "assets/routes/wayanad.webp",
+    "article": "https://en.wikipedia.org/wiki/Edakkal_caves"
+  },
+  {
+    "key": "hassan",
+    "title": "Chennakeshava Temple, Belur",
+    "file": "assets/routes/hassan.webp",
+    "article": "https://en.wikipedia.org/wiki/Chennakeshava_Temple%2C_Belur"
+  },
+  {
+    "key": "sakleshpur",
+    "title": "Manjarabad Fort",
+    "file": "assets/routes/sakleshpur.webp",
+    "article": "https://en.wikipedia.org/wiki/Manjarabad_Fort"
+  },
+  {
+    "key": "kabini",
+    "title": "Nagarhole National Park",
+    "file": "assets/routes/kabini.webp",
+    "article": "https://en.wikipedia.org/wiki/Nagarhole_National_Park"
+  },
+  {
+    "key": "bandipur",
+    "title": "Bandipur National Park",
+    "file": "assets/routes/bandipur.webp",
+    "article": "https://en.wikipedia.org/wiki/Bandipur_National_Park"
+  },
+  {
+    "key": "hampi",
+    "title": "Virupaksha Temple, Hampi",
+    "file": "assets/routes/hampi.webp",
+    "article": "https://en.wikipedia.org/wiki/Virupaksha_Temple%2C_Hampi"
+  },
+  {
+    "key": "gokarna",
+    "title": "Gokarna, Karnataka",
+    "file": "assets/routes/gokarna.webp",
+    "article": "https://en.wikipedia.org/wiki/Gokarna%2C_Karnataka"
+  },
+  {
+    "key": "udupi",
+    "title": "Udupi Sri Krishna Matha",
+    "file": "assets/routes/udupi.webp",
+    "article": "https://en.wikipedia.org/wiki/Udupi_Sri_Krishna_Matha"
+  },
+  {
+    "key": "mangalore",
+    "title": "Panambur Beach",
+    "file": "assets/routes/mangalore.webp",
+    "article": "https://en.wikipedia.org/wiki/Panambur_Beach"
+  },
+  {
+    "key": "jog-falls",
+    "title": "Jog Falls",
+    "file": "assets/routes/jog-falls.webp",
+    "article": "https://en.wikipedia.org/wiki/Jog_Falls"
+  },
+  {
+    "key": "shivanasamudra",
+    "title": "Shivanasamudra Falls",
+    "file": "assets/routes/shivanasamudra.webp",
+    "article": "https://en.wikipedia.org/wiki/Shivanasamudra_Falls"
+  },
+  {
+    "key": "chennai",
+    "title": "Marina Beach",
+    "file": "assets/routes/chennai.webp",
+    "article": "https://en.wikipedia.org/wiki/Marina_Beach"
+  },
+  {
+    "key": "hyderabad",
+    "title": "Charminar",
+    "file": "assets/routes/hyderabad.webp",
+    "article": "https://en.wikipedia.org/wiki/Charminar"
+  },
+  {
+    "key": "tirupati",
+    "title": "Venkateswara Temple, Tirumala",
+    "file": "assets/routes/tirupati.webp",
+    "article": "https://en.wikipedia.org/wiki/Venkateswara_Temple%2C_Tirumala"
+  },
+  {
+    "key": "coimbatore",
+    "title": "Marudhamalai",
+    "file": "assets/routes/coimbatore.webp",
+    "article": "https://en.wikipedia.org/wiki/Marudhamalai"
+  },
+  {
+    "key": "goa",
+    "title": "Basilica of Bom Jesus",
+    "file": "assets/routes/goa.webp",
+    "article": "https://en.wikipedia.org/wiki/Basilica_of_Bom_Jesus"
+  },
+  {
+    "key": "pondicherry",
+    "title": "Auroville",
+    "file": "assets/routes/pondicherry.webp",
+    "article": "https://en.wikipedia.org/wiki/Auroville"
+  },
+  {
+    "key": "shivamogga",
+    "title": "Shivappa Nayaka Palace, Shimoga",
+    "file": "assets/routes/shivamogga.webp",
+    "article": "https://en.wikipedia.org/wiki/Shivappa_Nayaka_Palace%2C_Shimoga"
+  },
+  {
+    "key": "bhadravati",
+    "title": "Lakshmi Narasimha Temple, Bhadravati",
+    "file": "assets/routes/bhadravati.webp",
+    "article": "https://en.wikipedia.org/wiki/Lakshmi_Narasimha_Temple%2C_Bhadravati"
+  },
+  {
+    "key": "birur",
+    "title": "Kemmangundi",
+    "file": "assets/routes/birur.webp",
+    "article": "https://en.wikipedia.org/wiki/Kemmangundi"
+  }
+]

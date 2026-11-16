@@ -19,7 +19,7 @@
     if (!summaryCache.has(key)) summaryCache.set(key, requestJson(api + encodeURIComponent(key.replaceAll(' ', '_'))));
     return summaryCache.get(key);
   };
-  const photoSource = page => page?.originalimage?.source || page?.thumbnail?.source || '';
+  const photoSource = page => { const thumb=page?.thumbnail?.source; return thumb ? thumb.replace(/\/\d+px-([^/]+)(?=\?|$)/, '/960px-$1') : (page?.originalimage?.source || ''); };
   const plain = html => new DOMParser().parseFromString(html||'','text/html').body.textContent.trim();
   const fileCredit = imageUrl => {
     if (!creditCache.has(imageUrl)) {
@@ -52,22 +52,17 @@
     for(const title of candidates){
       try{
         const result=await summary(title);
-        const sources=[...new Set([result.originalimage?.source,result.thumbnail?.source].filter(Boolean))];
-        if(!sources.length||!relatedPage(title,result.title))continue;
-        let loadedSource='';
-        for(const src of sources){
-          const loaded=await new Promise(resolve=>{
-            let settled=false;
-            const finish=value=>{if(settled)return;settled=true;clearTimeout(timeout);img.onload=null;img.onerror=null;resolve(value);};
-            const timeout=setTimeout(()=>finish(false),7000);
-            img.onload=()=>finish(true);img.onerror=()=>finish(false);img.hidden=false;img.src=src;
-          });
-          if(loaded){loadedSource=src;break;}
-        }
-        if(loadedSource){result.loadedImageSource=loadedSource;page=result;break;}
+        const src=photoSource(result);
+        if(!src||!relatedPage(title,result.title))continue;
+        if(img.dataset.localRoutePhoto!=='true'){
+          const loaded=await new Promise(resolve=>{let settled=false;const finish=value=>{if(settled)return;settled=true;clearTimeout(timeout);img.onload=null;img.onerror=null;resolve(value)};const timeout=setTimeout(()=>finish(false),5000);img.onload=()=>finish(true);img.onerror=()=>finish(false);img.hidden=false;img.src=src;});
+          if(!loaded)continue;
+          result.loadedImageSource=src;
+        } else result.loadedImageSource=result.thumbnail?.source||src;
+        page=result;break;
       }catch{}
     }
-    if(!page){img.hidden=true;if(source)source.textContent='Photo unavailable';return;}
+    if(!page){if(img.dataset.localRoutePhoto!=='true')img.hidden=true;if(source)source.textContent='Photo unavailable';return;}
     const routeName=window.CAB_DATA?.routes?.find(item=>item.slug===img.closest('.route-card')?.dataset.routeCard)?.name;
     img.alt=`${page.title} photo for the ${routeName||'Bengaluru'} cab route`;
     if(source){source.href=page.content_urls?.desktop?.page||articleUrl(page.title);source.textContent='View photo source ↗';source.title='Wikipedia image source';}
@@ -75,8 +70,7 @@
       const c=await fileCredit(page.loadedImageSource||photoSource(page));
       if(source){source.textContent=`Photo: ${c.artist} · ${c.license}`;source.href=c.fileUrl;source.title='Image credit and license details';}
     }catch{if(source)source.textContent='Photo: Wikimedia Commons';}
-  };
-  const routeImages=[...document.querySelectorAll('[data-wiki-image]')];
+  };  const routeImages=[...document.querySelectorAll('[data-wiki-image]')];
   if('IntersectionObserver' in window){
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){observer.unobserve(entry.target);loadRouteImage(entry.target);}}),{rootMargin:'180px'});
     routeImages.forEach(img=>observer.observe(img));
