@@ -1,0 +1,295 @@
+/* Desktop-only visual refinement. All rules are gated above the mobile/tablet breakpoints. */
+@media (min-width: 1024px) {
+  :root {
+    --desktop-content: 1240px;
+    --desktop-ink: #19251d;
+    --desktop-line: #d7e2d1;
+    --desktop-shadow: 0 20px 54px rgba(25, 48, 30, .09);
+  }
+
+  header.nav > .wrap {
+    width: min(1360px, calc(100% - 88px));
+  }
+
+  .nav-inner {
+    min-height: 82px;
+  }
+
+  .nav-links {
+    gap: clamp(20px, 2vw, 30px);
+  }
+
+  .nav-links a {
+    font-size: .91rem;
+    font-weight: 550;
+    transition: color .18s ease, transform .18s ease;
+  }
+
+  .nav-links a:hover {
+    transform: translateY(-1px);
+  }
+
+  main > .section > .wrap,
+  .page-hero > .wrap,
+  .routes-index > .wrap,
+  .route-simple-heading > .wrap {
+    width: min(var(--desktop-content), calc(100% - 88px));
+  }
+
+  main > .section {
+    padding-block: clamp(76px, 7vw, 108px);
+  }
+
+  .section-head {
+    max-width: 780px;
+    margin: 0 auto 36px;
+  }
+
+  .section-head h2,
+  .routes-index-heading h1,
+  .route-simple-heading h1 {
+    color: var(--desktop-ink);
+    font-size: clamp(2.4rem, 3.3vw, 3.6rem);
+    line-height: 1.06;
+    letter-spacing: -.052em;
+    text-wrap: balance;
+  }
+
+  .section-head p,
+  .page-hero p,
+  .route-simple-heading p {
+    max-width: 64ch;
+    color: #526154;
+    font-size: 1.02rem;
+    line-height: 1.72;
+  }
+
+  .hero,
+  .hero-inner {
+    min-height: min(760px, calc(100svh - 82px));
+  }
+
+  .hero-inner {
+    width: min(1360px, calc(100% - 88px));
+    grid-template-columns: minmax(0, 1.08fr) minmax(390px, .82fr);
+    gap: clamp(64px, 8vw, 128px);
+    padding-block: clamp(58px, 6vw, 88px);
+  }
+
+  .hero-copy {
+    max-width: 680px;
+  }
+
+  .hero h1 {
+    max-width: 10ch;
+    font-size: clamp(4rem, 6vw, 6rem);
+    line-height: .98;
+    letter-spacing: -.067em;
+  }
+
+  .hero-copy > p {
+    max-width: 45ch;
+    font-size: 1.04rem;
+    line-height: 1.72;
+  }
+
+  #quick-book.booking-card {
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 22px;
+  }
+
+  #quick-book h2 {
+    margin-bottom: 20px;
+    font-size: 1.7rem;
+  }
+
+  .page-hero {
+    min-height: 400px;
+    padding-block: 76px;
+  }
+
+  .page-hero > .wrap {
+    max-width: var(--desktop-content);
+  }
+
+  .page-hero h1 {
+    max-width: 14ch;
+    font-size: clamp(3.4rem, 5.2vw, 5.35rem);
+    line-height: 1.02;
+    letter-spacing: -.062em;
+  }
+
+  .page-hero-airport,
+  .page-hero-local,
+  .page-hero-outstation {
+    min-height: 480px;
+  }
+
+  .route-carousel-shell,
+  .vehicle-carousel-shell,
+  .local-rate-shell {
+    max-width: var(--desktop-content);
+    margin-inline: auto;
+  }
+
+  .route-carousel,
+  .vehicle-carousel-rail,
+  .local-rate-carousel {
+    gap: 22px;
+    padding: 8px 4px 22px;
+  }
+
+  .route-carousel > .route-card {
+    flex-basis: clamp(340px, 31vw, 390px);
+    border-radius: 20px;
+    box-shadow: 0 14px 36px rgba(25, 48, 30, .11);
+  }
+
+  .route-photo {
+    height: 238px;
+    object-fit: cover;
+  }
+
+  .route-card .route-copy {
+    padding: 22px 24px 24px;
+  }
+
+  .route-card h3 {
+    font-size: 1.38rem;
+    letter-spacing: -.035em;
+  }
+
+  .local-rate-card,
+  .vehicle-card {
+    flex-basis: clamp(310px, 27vw, 360px);
+    border-radius: 18px;
+  }
+
+  .local-rate-card > img,
+  .vehicle-card > img {
+    height: 178px;
+    min-height: 178px;
+    max-height: 178px;
+  }
+
+  .local-rate-content,
+  .vehicle-content {
+    padding: 20px 22px 22px;
+  }
+
+  .route-rate-grid {
+    gap: 18px;
+  }
+
+  .route-rate-card,
+  .attraction-card,
+  .faq-shell,
+  .about-story-copy,
+  .about-story-facts,
+  .about-story-services,
+  .contact-profile-card,
+  .contact-details-card {
+    border-color: var(--desktop-line);
+    box-shadow: var(--desktop-shadow);
+  }
+
+  .route-rate-card {
+    min-height: 210px;
+    padding: 24px;
+    border-radius: 18px;
+  }
+
+  .route-rate-card > strong {
+    font-size: 1.45rem;
+  }
+
+  .routes-index {
+    padding-block: 76px 104px;
+  }
+
+  .routes-index-heading {
+    margin-bottom: 24px;
+  }
+
+  .about-story > .wrap {
+    max-width: 1100px;
+  }
+
+  .about-story-heading {
+    margin-bottom: 42px;
+  }
+
+  .about-story-grid {
+    gap: 24px;
+  }
+
+  .about-story-copy,
+  .about-story-facts {
+    border-radius: 24px;
+  }
+
+  .about-story-copy {
+    padding: 44px 48px;
+  }
+
+  .about-story-copy p {
+    font-size: 1.08rem;
+    line-height: 1.78;
+  }
+
+  .about-story-services {
+    margin-top: 24px;
+    padding: 34px 40px;
+    border-radius: 24px;
+  }
+
+  .contact-section {
+    padding-block: 80px 104px;
+  }
+
+  .contact-cards {
+    width: min(1040px, 100%);
+    margin-inline: auto;
+    gap: 26px;
+  }
+
+  .contact-profile-card,
+  .contact-details-card {
+    border-radius: 24px;
+  }
+
+  .contact-profile-card {
+    padding: 38px;
+  }
+
+  .contact-details-card {
+    padding: 40px 44px;
+  }
+
+  .faq-section-premium > .wrap {
+    max-width: 1100px;
+  }
+
+  .faq-shell {
+    border-radius: 24px;
+    padding-inline: 36px;
+  }
+
+  .faq-shell .faq-q {
+    padding-block: 23px;
+    font-size: 1.04rem;
+  }
+
+  .footer > .wrap {
+    max-width: 1360px;
+  }
+
+  .btn,
+  .route-card,
+  .local-rate-card,
+  .vehicle-card,
+  .route-rate-card {
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+}
