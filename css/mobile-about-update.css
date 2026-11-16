@@ -12,3 +12,8 @@
 #main .about-story-services ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;justify-content:stretch!important;justify-items:stretch!important;gap:10px!important}
 #main .about-story-services li{width:100%;min-width:0;padding:9px 8px;text-align:center;overflow-wrap:anywhere}
 }
+
+/* Date/time labels behave like placeholders and clear after a value is selected. */
+.field-inline-label.has-value>label{display:none!important}
+.field-inline-label.has-value>input{padding-left:14px!important}
+
